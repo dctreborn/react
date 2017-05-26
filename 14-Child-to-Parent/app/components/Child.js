@@ -22,6 +22,24 @@ var Child = React.createClass({
     });
     this.props.setParent(newNumber);
   },
+    handleClick2: function() {
+    // this.setState is ansynchronous for performance reasons. To ensure that the
+    // setParent function get the updated number in time we will pass it the newNumber variable
+    var newNumber = this.state.number + 10;
+    this.setState({
+      number: newNumber
+    });
+    this.props.setParent(newNumber);
+  },
+    handleClick3: function() {
+    // this.setState is ansynchronous for performance reasons. To ensure that the
+    // setParent function get the updated number in time we will pass it the newNumber variable
+    var newNumber = this.state.number + 100;
+    this.setState({
+      number: newNumber
+    });
+    this.props.setParent(newNumber);
+  },
 
   // Whenever the button is clicked we'll use setState to reset the clickCounter.
   // This will reset the clicks -- and it will be passed upward to the parent as well.
@@ -45,6 +63,8 @@ var Child = React.createClass({
               Note how we have an onClick event associated with our handleClick function.
             */}
             <button className="btn btn-primary btn-lg" onClick={this.handleClick}>CLICK ME!!!!</button>
+            <button className="btn btn-primary btn-lg" onClick={this.handleClick2}>CLICK ME2!!!!</button>
+            <button className="btn btn-primary btn-lg" onClick={this.handleClick3}>CLICK ME3!!!!</button>
             {/* Here we create a button for resetting the clickCounter */}
             <button className="btn btn-danger btn-lg" onClick={this.resetClick}>Reset</button>
           </p>
